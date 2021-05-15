@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="/css/tictactoe.css"/>
+</head>
+<body>
+<div layout:fragment="menu">
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="container">
+        <div class="col-md-2">
+            <p class="turn-message" th:text="${state.turnMsg}">Message</p>
+        </div>
+    </div>
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="container">
+        <div class="col-md-2">
+            <p class="game-message" th:text="${state.gameMsg}">Message</p>
+        </div>
+    </div>
+</div>
+<div layout:fragment="content">
+    <h1>Welcome to Tic Tac Toe!</h1>
+    <p></p>
+    <p></p>
+    <div class="pull-right">
+        <p><a href="/tictactoe/new">New game</a></p>
+        <p><a href="/tictactoe/reset">Reset</a></p>
+    </div>
+    <p></p>
+    <div class="game-board">
+        <div class="box" th:text="${state.getStandingBoard().markAt(0,0)}"
+        onclick="document.location.href = '/tictactoe/move?row=0&col=0'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(0,1)}"
+             onclick="document.location.href = '/tictactoe/move?row=0&col=1'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(0,2)}"
+             onclick="document.location.href = '/tictactoe/move?row=0&col=2'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(1,0)}"
+             onclick="document.location.href = '/tictactoe/move?row=1&col=0'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(1,1)}"
+             onclick="document.location.href = '/tictactoe/move?row=1&col=1'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(1,2)}"
+             onclick="document.location.href = '/tictactoe/move?row=1&col=2'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(2,0)}"
+             onclick="document.location.href = '/tictactoe/move?row=2&col=0'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(2,1)}"
+             onclick="document.location.href = '/tictactoe/move?row=2&col=1'; return false">?
+        </div>
+        <div class="box" th:text="${state.getStandingBoard().markAt(2,2)}"
+             onclick="document.location.href = '/tictactoe/move?row=2&col=2'; return false">?
+        </div>
+    </div>
+</div>
+</body>
+<th:block layout:fragment="scripts">
+    <script src="/js/tictactoe.js"></script>
+</th:block>
+</html>
